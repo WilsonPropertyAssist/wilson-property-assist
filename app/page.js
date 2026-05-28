@@ -84,7 +84,7 @@ return (
             {[
               {
                 title: 'Property Inspections',
-                text: 'We communicate directly with tenants and manage maintenance requests on your behalf.'
+                text: 'Tenant Issue Management.'
               },
               {
                 title: 'Photo Reports',
@@ -337,7 +337,7 @@ return (
           </div>
 
           <div className="text-zinc-500 text-sm">
-            Norwich, Norfolk • enquiries@yourdomain.co.uk
+            Norwich, Norfolk • WPA@wilsonpropertyassist.co.uk
           </div>
         </div>
       </footer>
