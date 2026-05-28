@@ -311,30 +311,30 @@ return (
             <input
               type="text"
               name="name"
+              placeholder="Your Name"
               className="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-5 py-4 outline-none focus:border-emerald-500"
             />
 
             <input
               type="email"
               name="email"
+              placeholder="Email Address'
               className="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-5 py-4 outline-none focus:border-emerald-500"
             />
 
             <textarea
               name="message"
+              placeholder="How Can We Help"
               rows="5"
               className="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-5 py-4 outline-none focus:border-emerald-500"
             />
 
-            <button
-  type="submit"
-  className="w-full bg-white hover:bg-zinc-200 text-black font-semibold py-5 rounded-2xl transition-all duration-300"
->
-  Send Message
-</button>
+            <button type="submit">
+        Send Message
+      </button>
 
-</form>
-</div>
+    </form>
+  </div>
       </section>
 
       {/* Footer */}
