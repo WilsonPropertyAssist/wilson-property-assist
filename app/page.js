@@ -253,12 +253,13 @@ return (
                 name="landlordName"
                 className="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-5 py-4 outline-none focus:border-emerald-500"
               />
-
+              <div className="grid md:grid-cols-2 gap-6">
               <input
                 type="email"
                 name="landlordEmail"
                 className="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-5 py-4 outline-none focus:border-emerald-500"
               />
+              </div>
 
             <div className="grid md:grid-cols-2 gap-6">
               <input
@@ -365,11 +366,15 @@ return (
               className="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-5 py-4 outline-none focus:border-emerald-500"
             />
 
-            <button className="w-full bg-white hover:bg-zinc-200 text-black font-semibold py-5 rounded-2xl transition-all duration-300">
-              Send Message
-            </button>
-          </div>
-        </div>
+            <button
+  type="submit"
+  className="w-full bg-white hover:bg-zinc-200 text-black font-semibold py-5 rounded-2xl transition-all duration-300"
+>
+  Send Message
+</button>
+
+</form>
+</div>
       </section>
 
       {/* Footer */}
