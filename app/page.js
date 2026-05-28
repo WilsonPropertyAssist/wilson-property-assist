@@ -335,9 +335,8 @@ return (
             <button type="submit" className="w-full bg-white hover:bg-zinc-200 text-black font-semibold py-5 rounded-2xl transition-all duration-300 text-lg">
               Continue To Payment
             </button>
-          </div>
-        </form>
-      </section>
+          </form>
+</section>
 
       {/* Contact */}
       <section id="contact" className="px-6 py-24 border-t border-zinc-900">
