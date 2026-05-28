@@ -246,7 +246,7 @@ return (
             </p>
           </div>
 
-          <form onSubmit={handleSignupSubmit} className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-[32px] p-10 space-y-8"></form>
+          <form onSubmit={handleSignupSubmit} className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-[32px] p-10 space-y-8">
             <div className="grid md:grid-cols-2 gap-6">
               <input
                 type="text"
@@ -259,7 +259,6 @@ return (
                 name="landlordEmail"
                 className="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-5 py-4 outline-none focus:border-emerald-500"
               />
-            </div>
 
             <div className="grid md:grid-cols-2 gap-6">
               <input
@@ -332,11 +331,11 @@ return (
               </div>
             ))}
 
-            <button className="w-full bg-white hover:bg-zinc-200 text-black font-semibold py-5 rounded-2xl transition-all duration-300 text-lg">
+            <button type="submit" className="w-full bg-white hover:bg-zinc-200 text-black font-semibold py-5 rounded-2xl transition-all duration-300 text-lg">
               Continue To Payment
             </button>
           </div>
-        </div>
+        </form>
       </section>
 
       {/* Contact */}
