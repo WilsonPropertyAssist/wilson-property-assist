@@ -3,6 +3,53 @@ import { useState } from 'react'
 
 export default function WilsonPropertyLandingPage() {
   const [propertyCount, setPropertyCount] = useState(1)
+const [status, setStatus] = useState('')
+async function handleContactSubmit(e) {
+  e.preventDefault()
+  setStatus('Sending...')
+
+  const formData = new FormData(e.target)
+
+  const response = await fetch('/api/contact', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      formType: 'Contact',
+      name: formData.get('name'),
+      email: formData.get('email'),
+      message: formData.get('message'),
+    }),
+  })
+
+  setStatus(response.ok ? 'Message sent successfully!' : 'Something went wrong.')
+}
+
+async function handleSignupSubmit(e) {
+  e.preventDefault()
+  setStatus('Sending...')
+
+  const formData = new FormData(e.target)
+
+  const properties = Array.from({ length: propertyCount }).map((_, index) => ({
+    address: formData.get(`propertyAddress${index}`),
+    tenantName: formData.get(`tenantName${index}`),
+    tenantPhone: formData.get(`tenantPhone${index}`),
+  }))
+
+  const response = await fetch('/api/contact', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      formType: 'Subscription',
+      name: formData.get('landlordName'),
+      email: formData.get('landlordEmail'),
+      phone: formData.get('landlordPhone'),
+      properties,
+    }),
+  })
+
+  setStatus(response.ok ? 'Subscription enquiry sent!' : 'Something went wrong.')
+}
 return (
     <div className="min-h-screen bg-gradient-to-br from-zinc-950 via-zinc-900 to-emerald-950/30 text-white font-sans overflow-hidden relative">
       <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-emerald-500/10 blur-3xl rounded-full" />
@@ -199,17 +246,17 @@ return (
             </p>
           </div>
 
-          <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-[32px] p-10 space-y-8">
+          <form onSubmit={handleSignupSubmit} className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-[32px] p-10 space-y-8"></form>
             <div className="grid md:grid-cols-2 gap-6">
               <input
                 type="text"
-                placeholder="Landlord Full Name"
+                name="landlordName"
                 className="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-5 py-4 outline-none focus:border-emerald-500"
               />
 
               <input
                 type="email"
-                placeholder="Email Address"
+                name="landlordEmail"
                 className="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-5 py-4 outline-none focus:border-emerald-500"
               />
             </div>
@@ -217,7 +264,7 @@ return (
             <div className="grid md:grid-cols-2 gap-6">
               <input
                 type="tel"
-                placeholder="Phone Number"
+                name="landlordPhone"
                 className="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-5 py-4 outline-none focus:border-emerald-500"
               />
 
@@ -264,20 +311,20 @@ return (
                 <div className="space-y-5">
                   <input
                     type="text"
-                    placeholder="Property Address"
+                    name={`propertyAddress${index}`}
                     className="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-5 py-4 outline-none focus:border-emerald-500"
                   />
 
                   <div className="grid md:grid-cols-2 gap-5">
                     <input
                       type="text"
-                      placeholder="Tenant Name"
+                      name={`tenantName${index}`}
                       className="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-5 py-4 outline-none focus:border-emerald-500"
                     />
 
                     <input
                       type="tel"
-                      placeholder="Tenant Contact Number"
+                      name={`tenantPhone${index}`}
                       className="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-5 py-4 outline-none focus:border-emerald-500"
                     />
                   </div>
@@ -300,21 +347,21 @@ return (
             Have questions before subscribing? Reach out today.
           </p>
 
-          <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-[32px] p-10 space-y-6">
+          <form onSubmit={handleContactSubmit} className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-[32px] p-10 space-y-6">
             <input
               type="text"
-              placeholder="Your Name"
+              name="name"
               className="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-5 py-4 outline-none focus:border-emerald-500"
             />
 
             <input
               type="email"
-              placeholder="Email Address"
+              name="email"
               className="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-5 py-4 outline-none focus:border-emerald-500"
             />
 
             <textarea
-              placeholder="How can we help?"
+              name="message"
               rows="5"
               className="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-5 py-4 outline-none focus:border-emerald-500"
             />
