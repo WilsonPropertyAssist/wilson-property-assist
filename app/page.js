@@ -299,44 +299,48 @@ return (
   </div>
 </section>
 
-      {/* Contact */}
-      <section id="contact" className="px-6 py-24 border-t border-zinc-900">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-5xl font-bold mb-6">Get In Touch</h2>
-          <p className="text-zinc-400 text-lg mb-12">
-            Have questions before subscribing? Reach out today.
-          </p>
+{/* Contact */}
+<section id="contact" className="px-6 py-24 border-t border-zinc-900">
+  <div className="max-w-3xl mx-auto text-center">
+    <h2 className="text-5xl font-bold mb-6">Get In Touch</h2>
+    <p className="text-zinc-400 text-lg mb-12">
+      Have questions before subscribing? Reach out today.
+    </p>
 
-          <form onSubmit={handleContactSubmit} className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-[32px] p-10 space-y-6">
-            <input
-              type="text"
-              name="name"
-              placeholder="Your Name"
-              className="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-5 py-4 outline-none focus:border-emerald-500"
-            />
+    <form
+      onSubmit={handleContactSubmit}
+      className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-[32px] p-10 space-y-6"
+    >
+      <input
+        type="text"
+        name="name"
+        placeholder="Your Name"
+        className="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-5 py-4 outline-none focus:border-emerald-500"
+      />
 
-            <input
-              type="email"
-              name="email"
-              placeholder="Email Address'
-              className="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-5 py-4 outline-none focus:border-emerald-500"
-            />
+      <input
+        type="email"
+        name="email"
+        placeholder="Email Address"
+        className="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-5 py-4 outline-none focus:border-emerald-500"
+      />
 
-            <textarea
-              name="message"
-              placeholder="How Can We Help"
-              rows="5"
-              className="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-5 py-4 outline-none focus:border-emerald-500"
-            />
+      <textarea
+        name="message"
+        placeholder="How can we help?"
+        rows="5"
+        className="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-5 py-4 outline-none focus:border-emerald-500"
+      />
 
-            <button type="submit">
+      <button
+        type="submit"
+        className="w-full bg-white hover:bg-zinc-200 text-black font-semibold py-5 rounded-2xl transition-all duration-300"
+      >
         Send Message
       </button>
-
     </form>
   </div>
-      </section>
-
+</section>
       {/* Footer */}
       <footer className="px-6 py-10 border-t border-zinc-900">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
