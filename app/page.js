@@ -336,7 +336,7 @@ return (
               Continue To Payment
             </button>
           </form>
-</section>
+        </section>
 
       {/* Contact */}
       <section id="contact" className="px-6 py-24 border-t border-zinc-900">
