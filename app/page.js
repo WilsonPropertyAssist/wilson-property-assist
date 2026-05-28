@@ -331,8 +331,7 @@ return (
                 </div>
               </div>
             ))}
-
-            <button
+<button
   type="submit"
   className="w-full bg-white hover:bg-zinc-200 text-black font-semibold py-5 rounded-2xl transition-all duration-300 text-lg"
 >
