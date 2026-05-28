@@ -12,7 +12,7 @@ return (
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div>
             <div className="inline-block bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 rounded-full px-4 py-2 text-sm mb-6">
-              Norwich Property Assist
+              Wilson Property Assist
             </div>
 
             <h1 className="text-5xl lg:text-7xl font-bold leading-tight mb-6">
