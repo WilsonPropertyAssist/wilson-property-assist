@@ -49,8 +49,12 @@ async function handleSignupSubmit(e) {
   })
 
   setStatus(response.ok ? 'Subscription enquiry sent!' : 'Something went wrong.')
-  if (response.ok) {
+  console.log('Signup response ok:', response.ok)
+
+if (response.ok) {
   window.location.href = 'https://buy.stripe.com/dRmaF09Y68oW5lkdAH4Ja00'
+} else {
+  alert('Form email failed, so Stripe redirect did not happen.')
 }
 return (
     <div className="min-h-screen bg-gradient-to-br from-zinc-950 via-zinc-900 to-emerald-950/30 text-white font-sans overflow-hidden relative">
