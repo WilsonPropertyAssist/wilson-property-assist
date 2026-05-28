@@ -7,7 +7,7 @@ export async function POST(request) {
     const data = await request.json()
 
     await resend.emails.send({
-      from: 'Wilson Property Assist <onboarding@resend.dev>',
+      from: 'Wilson Property Assist <WPA@wilsonpropertyassist.co.uk>',
       to: 'WPA@wilsonpropertyassist.co.uk',
       subject: `New ${data.formType} enquiry`,
       html: `
