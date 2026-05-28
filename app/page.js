@@ -49,6 +49,8 @@ async function handleSignupSubmit(e) {
   })
 
   setStatus(response.ok ? 'Subscription enquiry sent!' : 'Something went wrong.')
+  if (response.ok) {
+  window.location.href = 'https://buy.stripe.com/dRmaF09Y68oW5lkdAH4Ja00'
 }
 return (
     <div className="min-h-screen bg-gradient-to-br from-zinc-950 via-zinc-900 to-emerald-950/30 text-white font-sans overflow-hidden relative">
