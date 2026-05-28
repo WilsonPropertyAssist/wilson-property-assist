@@ -338,9 +338,7 @@ return (
 >
   Continue To Payment
 </button>
-
 </form>
-</div>
 </section>
 
       {/* Contact */}
