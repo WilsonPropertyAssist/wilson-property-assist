@@ -333,12 +333,19 @@ return (
       />
 
       <button
-        type="submit"
-        className="w-full bg-white hover:bg-zinc-200 text-black font-semibold py-5 rounded-2xl transition-all duration-300"
-      >
-        Send Message
-      </button>
-    </form>
+  type="submit"
+  className="w-full bg-white hover:bg-zinc-200 text-black font-semibold py-5 rounded-2xl transition-all duration-300"
+>
+  Send Message
+</button>
+
+{status && (
+  <p className="text-emerald-400 text-sm mt-4">
+    {status}
+  </p>
+)}
+
+</form>
   </div>
 </section>
       {/* Footer */}
