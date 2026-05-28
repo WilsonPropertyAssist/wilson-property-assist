@@ -236,109 +236,67 @@ return (
         </div>
       </section>
 
-      {/* Signup Form */}
-      <section id="signup" className="px-6 py-24 border-t border-zinc-900">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-14">
-            <h2 className="text-5xl font-bold mb-6">Start Your Subscription</h2>
-            <p className="text-zinc-400 text-lg">
-              Enter your details below and we’ll contact you to finalise your property setup.
-            </p>
+{/* Signup Form */}
+<section id="signup" className="px-6 py-24 border-t border-zinc-900">
+  <div className="max-w-4xl mx-auto">
+    <div className="text-center mb-14">
+      <h2 className="text-5xl font-bold mb-6">Start Your Subscription</h2>
+      <p className="text-zinc-400 text-lg">
+        Enter your details below and we’ll contact you to finalise your property setup.
+      </p>
+    </div>
+
+    <form onSubmit={handleSignupSubmit} className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-[32px] p-10 space-y-8">
+      <div className="grid md:grid-cols-2 gap-6">
+        <input type="text" name="landlordName" placeholder="Landlord Full Name" className="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-5 py-4 outline-none focus:border-emerald-500" />
+        <input type="email" name="landlordEmail" placeholder="Email Address" className="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-5 py-4 outline-none focus:border-emerald-500" />
+      </div>
+
+      <div className="grid md:grid-cols-2 gap-6">
+        <input type="tel" name="landlordPhone" placeholder="Phone Number" className="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-5 py-4 outline-none focus:border-emerald-500" />
+
+        <select value={propertyCount} onChange={(e) => setPropertyCount(Number(e.target.value))} className="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-5 py-4 outline-none focus:border-emerald-500">
+          <option value={1}>1 Property</option>
+          <option value={2}>2 Properties</option>
+          <option value={3}>3 Properties</option>
+          <option value={4}>4 Properties</option>
+          <option value={5}>5 Properties</option>
+          <option value={6}>6+ Properties</option>
+        </select>
+      </div>
+
+      {propertyCount === 6 ? (
+        <div className="border border-emerald-500/20 bg-emerald-500/5 rounded-3xl p-10 text-center">
+          <h3 className="text-3xl font-bold mb-4">Portfolio Landlord?</h3>
+          <p className="text-zinc-400 text-lg max-w-2xl mx-auto mb-8 leading-relaxed">
+            If you have more than 5 properties, please contact us directly for a tailored management solution and discounted portfolio pricing.
+          </p>
+          <a href="#contact" className="inline-block bg-emerald-500 hover:bg-emerald-400 transition-all duration-300 text-black font-semibold px-8 py-4 rounded-2xl">
+            Contact Us
+          </a>
+        </div>
+      ) : (
+        Array.from({ length: propertyCount }).map((_, index) => (
+          <div key={index} className="border border-zinc-800 rounded-3xl p-8 bg-zinc-950/50">
+            <h3 className="text-2xl font-semibold mb-6">Property {index + 1} Details</h3>
+
+            <div className="space-y-5">
+              <input type="text" name={`propertyAddress${index}`} placeholder="Property Address" className="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-5 py-4 outline-none focus:border-emerald-500" />
+
+              <div className="grid md:grid-cols-2 gap-5">
+                <input type="text" name={`tenantName${index}`} placeholder="Tenant Name" className="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-5 py-4 outline-none focus:border-emerald-500" />
+                <input type="tel" name={`tenantPhone${index}`} placeholder="Tenant Contact Number" className="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-5 py-4 outline-none focus:border-emerald-500" />
+              </div>
+            </div>
           </div>
+        ))
+      )}
 
-          <form onSubmit={handleSignupSubmit} className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-[32px] p-10 space-y-8">
-            <div className="grid md:grid-cols-2 gap-6">
-              <input
-                type="text"
-                name="landlordName"
-                className="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-5 py-4 outline-none focus:border-emerald-500"
-              />
-              <div className="grid md:grid-cols-2 gap-6">
-              <input
-                type="email"
-                name="landlordEmail"
-                className="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-5 py-4 outline-none focus:border-emerald-500"
-              />
-              </div>
-
-            <div className="grid md:grid-cols-2 gap-6">
-              <input
-                type="tel"
-                name="landlordPhone"
-                className="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-5 py-4 outline-none focus:border-emerald-500"
-              />
-
-              <select
-                value={propertyCount}
-                onChange={(e) => setPropertyCount(Number(e.target.value))}
-                className="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-5 py-4 outline-none focus:border-emerald-500"
-              >
-                <option value={1}>1 Property</option>
-                <option value={2}>2 Properties</option>
-                <option value={3}>3 Properties</option>
-                <option value={4}>4 Properties</option>
-                <option value={5}>5 Properties</option>
-                <option value={6}>6+ Properties</option>
-              </select>
-            </div>
-
-            {propertyCount === 6 ? (
-              <div className="border border-emerald-500/20 bg-emerald-500/5 rounded-3xl p-10 text-center">
-                <h3 className="text-3xl font-bold mb-4">
-                  Portfolio Landlord?
-                </h3>
-
-                <p className="text-zinc-400 text-lg max-w-2xl mx-auto mb-8 leading-relaxed">
-                  If you have more than 5 properties, please contact us directly for a tailored management solution and discounted portfolio pricing.
-                </p>
-
-                <a
-                  href="#contact"
-                  className="inline-block bg-emerald-500 hover:bg-emerald-400 transition-all duration-300 text-black font-semibold px-8 py-4 rounded-2xl"
-                >
-                  Contact Us
-                </a>
-              </div>
-            ) : Array.from({ length: propertyCount }).map((_, index) => (
-              <div
-                key={index}
-                className="border border-zinc-800 rounded-3xl p-8 bg-zinc-950/50"
-              >
-                <h3 className="text-2xl font-semibold mb-6">
-                  Property {index + 1} Details
-                </h3>
-
-                <div className="space-y-5">
-                  <input
-                    type="text"
-                    name={`propertyAddress${index}`}
-                    className="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-5 py-4 outline-none focus:border-emerald-500"
-                  />
-
-                  <div className="grid md:grid-cols-2 gap-5">
-                    <input
-                      type="text"
-                      name={`tenantName${index}`}
-                      className="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-5 py-4 outline-none focus:border-emerald-500"
-                    />
-
-                    <input
-                      type="tel"
-                      name={`tenantPhone${index}`}
-                      className="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-5 py-4 outline-none focus:border-emerald-500"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-))}
-<button
-  type="submit"
-  className="w-full bg-white hover:bg-zinc-200 text-black font-semibold py-5 rounded-2xl transition-all duration-300 text-lg"
->
-  Continue To Payment
-</button>
-</form>
+      <button type="submit" className="w-full bg-white hover:bg-zinc-200 text-black font-semibold py-5 rounded-2xl transition-all duration-300 text-lg">
+        Continue To Payment
+      </button>
+    </form>
+  </div>
 </section>
 
       {/* Contact */}
